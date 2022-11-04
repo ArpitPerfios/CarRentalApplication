@@ -33,6 +33,9 @@
 				<div th:if="${param.success}">
 					<div class="alert alert-info">Register car here</div>
 				</div>
+				<div th:if="${param.pleaseEnterCorrectDetails}">
+					<div class="alert alert-info">Please enter correct Details</div>
+				</div>
 				<h1>Car Details</h1>
 				<form th:action="@{/carRegister}" method="post" th:object="${car}">
 					<div class="form-group">
@@ -70,7 +73,7 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="control-label" for="manfYear"> Manufacturing Year </label> <input
+						<label class="control-label" for="manfYear" > Manufacturing Year </label> <input
 							id="manfYear" type="number"  class="form-control"th:field="*{manfYear}" 
 							required autofocus="autofocus" />
 					</div>

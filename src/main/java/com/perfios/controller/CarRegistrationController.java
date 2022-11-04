@@ -58,13 +58,14 @@ public class CarRegistrationController {
 		String s1 = registrationDto.getModelName();
 		String s2 = registrationDto.getNumberPlate();
 		Car c = carrepo.findByModelNameAndNumberPlate(s1,s2);
-		if(c==null) {
+		String[] st=registrationDto.getNumberPlate().split("");
+		if(c==null && registrationDto.getManfYear()<2022 && registrationDto.getMileage()>0 && st.length==4) {
 			registrationDto.setOwner(id);
 		carservice.save(registrationDto);
 		return "successfulCarRegistration";
 		}
 		else {
-			return "alreadyRegistered";
+			return "redirect:/carRegister?pleaseEnterCorrectDetails";
 		}
 	}
 	
