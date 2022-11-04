@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Car Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<!-- Create HTML registration form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">Register car here</div>
+				</div>
+				<div th:if="${param.already}">
+					<div class="alert alert-info">You already have a booking</div>
+				</div>
+				<div th:if="${param.pleaseEnterCorrectDate}">
+					<div class="alert alert-info">Please enter correct rental and return date</div>
+				</div>
+				<div th:if="${param.pleaseEnterCorrectKM}">
+					<div class="alert alert-info">Please enter correct KM value</div>
+				</div>
+				<h1>Car Details</h1>
+
+				<form th:action="@{/carRental}" method="post" th:object="${carrent}">
+					<div class="form-group">
+						<label class="control-label" for="rentalDate"> RentalDate
+						</label> <input id="rentalDate" class="form-control" type="date"
+							th:field="*{rentalDate}" required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="returnDate"> ReturnDate
+						</label> <input id="returnDate" class="form-control" type="date"
+							th:field="*{returnDate}" required autofocus="autofocus" />
+					</div>
+
+
+					<!-- <div class="form-group">
+						<label class="control-label" for="driver">Username </label> <input
+							id="driver" class="form-control" th:field="*{driver}" required
+							autofocus="autofocus" />
+					</div>
+ -->
+					<!--  <div class="form-group">
+						<label class="control-label" for="car"> Car </label> <select
+							th:field="*{car}" >
+							<option th:each="car1 : ${cars}" th:value="${car1.modelName}" th:text="${car1.modelName}">car1</option>
+						</select>
+					</div> 
+					 -->
+					<div class="form-group">
+						<label class="control-label" for="km"> KM </label> <input
+							id="km" class="form-control" th:type="number" th:field="*{km}" required
+							autofocus="autofocus" />
+					</div>
+
+					 <!-- <div class="form-group">
+						<label class="control-label" for="numberPlate"> NumberPlate </label> <select
+							th:field="*{numberPlate}" >
+							<option th:each="car1 : ${cars}" th:value="${car1.numberPlate}" th:text="${car1.numberPlate}">car1</option>
+						</select>
+					</div>
+					 -->
+					<div class="form-group">
+						<label class="control-label" for="bookStation"> From </label> <select
+							th:field="*{bookStation}" >
+							<option th:each="station : ${stations}" th:value="${station.name}" th:text="${station.name}">station</option>
+						</select>
+					</div>
+
+				<!-- 	<div class="form-group">
+						<label class="control-label" for="dropStation"> To </label> <select
+							th:field="*{dropStation}" >
+							<option th:each="station : ${stations}" th:value="${station.name}" th:text="${station.name}">station</option>
+						</select>
+					</div> -->
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+

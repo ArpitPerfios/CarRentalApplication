@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Car Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+	</nav>
+<br>
+<br>
+	<!-- Create HTML registration form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">Register car here</div>
+				</div>
+				<h1>Car Details</h1>
+				<form th:action="@{/carRegister}" method="post" th:object="${car}">
+					<div class="form-group">
+						<label class="control-label" for="company"> Company </label> <input
+							id="company" class="form-control" th:field="*{company}"
+							required autofocus="autofocus" />
+					</div>
+			
+					<div class="form-group">
+						<label class="control-label" for="modelName"> ModelName </label> <input
+							id="modelName" class="form-control"th:field="*{modelName}" 
+							required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="engineType"> EngineType </label> 
+						<select th:field="*{engineType}">
+    					<option th:value="'Petrol'" th:text="Petrol"></option>
+   						 <option th:value="'Diesel'" th:text="Diesel"></option>
+   						 <option th:value="'EV'" th:text="EV"></option>
+   						 <option th:value="'CNG'" th:text="CNG"></option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="numberPlate">Number  </label> <input
+							id="numberPlate" class="form-control"th:field="*{numberPlate}" 
+							required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="mileage"> Mileage </label> <input
+							id="mileage" type="number"  class="form-control"th:field="*{mileage}" 
+							required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="manfYear"> Manufacturing Year </label> <input
+							id="manfYear" type="number"  class="form-control"th:field="*{manfYear}" 
+							required autofocus="autofocus" />
+					</div>
+					<!-- 
+					<div class="form-group">
+						<label class="control-label" for="station"> Station </label> <input
+							id="station"  class="form-control"th:field="*{station}" 
+							required autofocus="autofocus" />
+					</div>
+					 -->
+					<div class="form-group">
+						<label class="control-label" for="station"> Station </label> <select
+							th:field="*{station}" >
+							<option th:each="station1 : ${stations}" th:value="${station1.name}" th:text="${station1.name}">station1</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+

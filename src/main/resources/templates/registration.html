@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+ crossorigin="anonymous">
+	
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	.loginButton{
+	float:right;
+	padding-right:100px;
+	padding-top:10px;
+	}
+	.loginButton button{
+	width:200px;
+	height:50px;
+	background:aqua;
+	}
+	</style>
+</head>
+
+<body>
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+   <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed"
+     data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+     aria-controls="navbar">
+     <span class="sr-only">Toggle navigation</span> <span
+      class="icon-bar"></span> <span class="icon-bar"></span> <span
+      class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#" th:href="@{/}">Registration and
+     Login Module</a>
+     </div>
+   </div>
+
+ <div class="container"style="padding-top:50px">
+  <div class="row">
+   <div class="col-md-6 col-md-offset-3">
+
+    <!-- success message -->
+    <div th:if="${param.success}">
+     <div class="alert alert-info">You've successfully registered
+      to our awesome app!</div>
+    </div>
+    <div th:if="${param.age}">
+     <div class="alert alert-danger">Grow Up and then come back</div>
+    </div>
+    <div class="container2">
+        <form th:action="@{/registration}" method="post" th:object="${user}" align="center">
+            <h3>Sign Up To The App</h2>
+            <div class="form-step1">
+                 FirstName:<input type="text" placeholder="firstName" th:field="*{firstName}"required>
+                 </div>
+                 <div class="form-step1">
+               	LastName:<input type="text" placeholder="lastName" th:field="*{lastName}"required>
+               	</div>
+               	<div class="form-step1">
+                Age:<input type="number" maxlength="2" placeholder="Age" th:field="*{age}" required>
+                </div>
+                <div class="form-step1">
+                Gender:<input type="text" placeholder="Gender" th:field="*{gender}"required>
+           		 </div>
+            	<div class="form-step1">           
+                Email:<input type="email" placeholder="Email" th:field="*{email}" required>
+                </div>
+                <div class="form-step1">
+                Password:<input type="password" placeholder="Password" th:field="*{password}" required>
+                </div>
+                <div class="form-step1">
+                Contact:<input type="number" placeholder="Contact Number" th:field="*{contact}" required>
+                </div>
+                <div class="form-step1">
+                State:<input type="text" placeholder="State" th:field="*{state}" required>
+                </div>
+                <div class="form-step1">
+                Country:<input type="text" placeholder="Country" th:field="*{country}" required>
+                </div>
+                <div class="form-step1">
+               City:<input type="text" placeholder="City" th:field="*{city}" required> 
+               </div>
+             <div class="buttons">
+                    <button type="submit" id="next1">submit</button>
+                    <span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span> 
+                </div>
+        </form>
+     
+</body>

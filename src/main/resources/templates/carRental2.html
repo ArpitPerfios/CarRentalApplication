@@ -1,0 +1,30 @@
+  <div class="container my-2">
+        <h1>Car List</h1>
+
+        <a th:href="@{/showNewEmployeeForm}" class="btn btn-primary btn-sm mb-3"> Car Detail </a>
+
+        <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                	<th>Car rentalDate</th>
+                    <th>Car returnDate</th>
+                    <th>Car ModelName</th>
+                    <th>Car km</th>
+                    <th>Car numberPlate </th>
+                    <th>Car bookStation </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="employee : ${carrents}">
+                    <td th:text="${employee.rentalDate}"></td>
+                    <td th:text="${employee.returnDate}"></td>
+                    <td th:text="${employee.modelName}"></td>
+                    <td th:text="${employee.km}"></td>
+                    <td th:text="${employee.numberPlate}"></td>
+                    <td th:text="${employee.bookStation}"></td>
+                    <td> <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-primary">Delete</a>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
