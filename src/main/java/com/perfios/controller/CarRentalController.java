@@ -2,6 +2,7 @@ package com.perfios.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -106,6 +107,20 @@ public class CarRentalController {
 		Date d1 = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
 		String date2 = registrationDto.getReturnDate();
 		Date d2 = new SimpleDateFormat("yyyy-MM-dd").parse(date2);
+		LocalDate dt1 = LocalDate.parse("2022-11-04");
+	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+		LocalDate now = LocalDate.now(); 
+		Date d3 =new SimpleDateFormat("yyyy-MM-dd").parse(dtf.format(now));
+		
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
+		System.out.println(d3+"   "+d1);
 		
 		//check for kilometer value negative or not
 		int km = registrationDto.getKm();
@@ -114,7 +129,10 @@ public class CarRentalController {
 		{
 			return "redirect:/carRental?already";
 		}
-		else if(d1.compareTo(d2)>=0) {
+		else if(d2.before(d1)) {
+			return "redirect:/carRental?pleaseEnterCorrectDate";
+		}
+		else if(d1.before(d3)) {
 			return "redirect:/carRental?pleaseEnterCorrectDate";
 		}
 		else if(km<=0) {

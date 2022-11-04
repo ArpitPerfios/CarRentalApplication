@@ -55,34 +55,34 @@
         <form th:action="@{/registration}" method="post" th:object="${user}" align="center">
             <h3>Sign Up To The App</h2>
             <div class="form-step1">
-                 FirstName:<input type="text" placeholder="firstName" th:field="*{firstName}"required>
+                <p> FirstName:</p><input type="text" placeholder="firstName" th:field="*{firstName}"required>
                  </div>
                  <div class="form-step1">
-               	LastName:<input type="text" placeholder="lastName" th:field="*{lastName}"required>
+               	<p>LastName:</p><input type="text" placeholder="lastName" th:field="*{lastName}"required>
                	</div>
                	<div class="form-step1">
-                Age:<input type="number" maxlength="2" placeholder="Age" th:field="*{age}" required>
+               <p> Age:</p><input type="number" maxlength="2" placeholder="Age" th:field="*{age}" required>
                 </div>
                 <div class="form-step1">
-                Gender:<input type="text" placeholder="Gender" th:field="*{gender}"required>
+                <p>Gender:</p><input type="text" placeholder="Gender" th:field="*{gender}"required>
            		 </div>
             	<div class="form-step1">           
-                Email:<input type="email" placeholder="Email" th:field="*{email}" required>
+                <p>Email:</p><input type="email" placeholder="Email" th:field="*{email}" required>
                 </div>
                 <div class="form-step1">
-                Password:<input type="password" placeholder="Password" th:field="*{password}" required>
+                <p>Password:</p><input type="password" placeholder="Password" th:field="*{password}" required>
                 </div>
                 <div class="form-step1">
-                Contact:<input type="number" placeholder="Contact Number" th:field="*{contact}" required>
+                <p>Contact:</p><input type="number" placeholder="Contact Number" th:field="*{contact}" required>
                 </div>
                 <div class="form-step1">
-                State:<input type="text" placeholder="State" th:field="*{state}" required>
+                <p>State:</p><input type="text" placeholder="State" th:field="*{state}" required>
                 </div>
                 <div class="form-step1">
-                Country:<input type="text" placeholder="Country" th:field="*{country}" required>
+                <p>Country:</p><input type="text" placeholder="Country" th:field="*{country}" required>
                 </div>
                 <div class="form-step1">
-               City:<input type="text" placeholder="City" th:field="*{city}" required> 
+               <p>City:</p><input type="text" placeholder="City" th:field="*{city}" required> 
                </div>
              <div class="buttons">
                     <button type="submit" id="next1">submit</button>
