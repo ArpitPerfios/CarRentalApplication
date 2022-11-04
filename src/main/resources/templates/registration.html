@@ -49,7 +49,7 @@
       to our awesome app!</div>
     </div>
     <div th:if="${param.age}">
-     <div class="alert alert-danger">Grow Up and then come back</div>
+     <div class="alert alert-danger">Age should be more than 18</div>
     </div>
     <div class="container2">
         <form th:action="@{/registration}" method="post" th:object="${user}" align="center">

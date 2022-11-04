@@ -112,15 +112,6 @@ public class CarRentalController {
 		LocalDate now = LocalDate.now(); 
 		Date d3 =new SimpleDateFormat("yyyy-MM-dd").parse(dtf.format(now));
 		
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
-		System.out.println(d3+"   "+d1);
 		
 		//check for kilometer value negative or not
 		int km = registrationDto.getKm();
